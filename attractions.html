@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atrakcje na Podlasiu - Kierunek Wschód 2</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35.jpeg');
+            /* Fallback or specific hero */
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .attraction-card {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .attraction-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .attraction-content {
+            padding: 1.5rem;
+        }
+
+        .attraction-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .attraction-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="app.html" class="logo">
+                <img src="assets/logo.png" alt="Kierunek Wschód" style="height: 110px; vertical-align: middle;">
+            </a>
+            <nav class="nav-links">
+                <a href="app.html" class="nav-link" data-i18n="nav-home">Home</a>
+                <a href="modern.html" class="nav-link" data-i18n="nav-modern">Modern</a>
+                <a href="retro.html" class="nav-link" data-i18n="nav-retro">Retro</a>
+                <a href="relax.html" class="nav-link" data-i18n="nav-relax">Relax</a>
+                <a href="attractions.html" class="nav-link" data-i18n="nav-attractions">Atrakcje</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="nav-contact">Kontakt</a>
+            </nav>
+            <a href="#book" class="btn-cta" data-i18n="nav-book">Rezerwuj</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="overlay"></div>
+        <div class="container page-hero-content">
+            <div class="hero-subtitle" data-i18n="attr-hero-sub">Odkryj Podlasie</div>
+            <h1 data-i18n="attr-hero-title">Atrakcje w Okolicy</h1>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <div class="section-header" style="text-align: center; margin-top: 4rem;">
+            <p data-i18n="attr-intro">Narewka i okolice to serce Puszczy Białowieskiej. Oto miejsca, które musisz
+                zobaczyć.</p>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- Puszcza -->
+            <div class="attraction-card">
+                <img src="assets/attraction_bison.png" class="attraction-img" alt="Puszcza Białowieska">
+                <div class="attraction-content">
+                    <h3 class="attraction-title" data-i18n="attr-forest-title">Puszcza Białowieska</h3>
+                    <p class="attraction-desc" data-i18n="attr-forest-desc">Ostatni naturalny las nizinny w Europie. Dom
+                        Żubra i tysięcy gatunków roślin i zwierząt. Idealne miejsce na spacery i rowery.</p>
+                </div>
+            </div>
+
+            <!-- Rzeka Narewka -->
+            <div class="attraction-card">
+                <img src="assets/attraction_river.png" class="attraction-img" alt="Rzeka Narewka">
+                <div class="attraction-content">
+                    <h3 class="attraction-title" data-i18n="attr-river-title">Spływy Kajakowe Narewką</h3>
+                    <p class="attraction-desc" data-i18n="attr-river-desc">Malownicza rzeka wijąca się przez puszczę.
+                        Spokojny nurt idealny dla rodzin i początkujących kajakarzy.</p>
+                </div>
+            </div>
+
+            <!-- Cerkwie -->
+            <div class="attraction-card">
+                <img src="assets/attraction_church.png" class="attraction-img" alt="Cerkwie">
+                <div class="attraction-content">
+                    <h3 class="attraction-title" data-i18n="attr-culture-title">Szlak Cerkwi i Kultury</h3>
+                    <p class="attraction-desc" data-i18n="attr-culture-desc">Odkryj unikalną architekturę drewnianych
+                        cerkwi i wielokulturowość Podlasia. Narewka słynie z otwartości i tradycji.</p>
+                </div>
+            </div>
+
+            <!-- Siemianówka -->
+            <div class="attraction-card">
+                <img src="assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.33 (2).jpeg" class="attraction-img"
+                    alt="Zalew Siemianówka">
+                <div class="attraction-content">
+                    <h3 class="attraction-title" data-i18n="attr-lake-title">Zalew Siemianówka</h3>
+                    <p class="attraction-desc" data-i18n="attr-lake-desc">Raj dla wędkarzy i ornitologów. Trzeci co do
+                        wielkości zbiornik wodny w Polsce, idealny na plażowanie i obserwację ptaków.</p>
+                </div>
+            </div>
+
+            <!-- Skansen -->
+            <div class="attraction-card">
+                <img src="assets/retro-boutique/WhatsApp Image 2026-01-15 at 20.36.09.jpeg" class="attraction-img"
+                    alt="Skansen">
+                <div class="attraction-content">
+                    <h3 class="attraction-title" data-i18n="attr-museum-title">Galeria i Skansen</h3>
+                    <p class="attraction-desc" data-i18n="attr-museum-desc">Odwiedź Galerię im. Tamary Sołoniewicz oraz
+                        lokalny skansen, by poznać historię życia na pograniczu.</p>
+                </div>
+            </div>
+
+            <!-- Rezerwat -->
+            <div class="attraction-card">
+                <img src="assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.36 (10).jpeg" class="attraction-img"
+                    alt="Rezerwat">
+                <div class="attraction-content">
+                    <h3 class="attraction-title" data-i18n="attr-reserve-title">Rezerwat Pokazowy Żubrów</h3>
+                    <p class="attraction-desc" data-i18n="attr-reserve-desc">Zobacz Króla Puszczy z bliska. Rezerwat
+                        znajduje się na drodze do Białowieży i oferuje spotkanie z żubrami, łosiami i wilkami.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <a href="attractions.html" class="footer-highlight-link" data-i18n="nav-attractions">Atrakcje na
+                Podlasiu</a>
+            <div class="footer-bottom-links">
+                <a href="about.html" data-i18n="nav-about">O nas</a>
+                <a href="index.html#contact" data-i18n="nav-contact">Kontakt</a>
+            </div>
+            <p data-i18n="footer-rights" style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Kierunek
+                Wschód. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/audio.js"></script>
+    <script>
+        // Copy Over Artifact Images to local if possible, otherwise use placeholder logic
+        // For now, I've hardcoded some paths. Ideally we move the generated images to assets/attractions
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kierunek Wschód 2 - Boutique Rentals</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Kierunek Wschód" style="height: 50px; vertical-align: middle;">
+            </a>
+            <nav class="nav-links">
+                <a href="modern.html" class="nav-link" data-i18n="nav-modern">Modern</a>
+                <a href="retro.html" class="nav-link" data-i18n="nav-retro">Retro</a>
+                <a href="relax.html" class="nav-link" data-i18n="nav-relax">Relax</a>
+                <a href="about.html" class="nav-link" data-i18n="nav-about">O Nas</a>
+                <a href="#contact" class="nav-link" data-i18n="nav-contact">Kontakt</a>
+            </nav>
+            <a href="#book" class="btn-cta" data-i18n="nav-book">Rezerwuj</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Hero Slideshow Background -->
+        <div class="hero-bg-slideshow">
+            <div class="hero-bg active"
+                style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35.jpeg');">
+            </div>
+            <div class="hero-bg"
+                style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-16 at 07.47.57.jpeg');">
+            </div>
+            <div class="hero-bg"
+                style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.30.jpeg');">
+            </div>
+        </div>
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-subtitle" data-i18n="hero-subtitle">Boutique Apartments</div>
+            <h1 data-i18n="hero-title">Odkryj Swój <span class="text-gold">Wschód</span></h1>
+            <a href="#apartments" class="btn-cta" style="margin-top: 2rem; display: inline-block;"
+                data-i18n="hero-cta">Zobacz
+                Apartamenty</a>
+        </div>
+        <div class="scroll-hint" onclick="document.getElementById('apartments').scrollIntoView({behavior: 'smooth'})">
+            &darr;
+        </div>
+    </section>
+
+    <!-- Apartments Layout -->
+    <section id="apartments" class="section-apartments container">
+        <h2 class="section-title" data-i18n="sect-title">Nasze Przestrzenie</h2>
+
+        <div class="apartment-grid">
+
+            <!-- Modern Card -->
+            <article class="apartment-card" id="modern">
+                <div class="apt-image"
+                    style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35 (1).jpeg');">
+                    <span class="apt-tag" data-i18n="tag-modern">1 Pietro</span>
+                </div>
+                <div class="apt-details">
+                    <h3 class="apt-title" data-i18n="apt-modern-title">Modern – The Upper Apartment</h3>
+                    <p class="apt-desc" data-i18n="apt-modern-desc">
+                        70m² open-plan living room with cinema projector. Modern kitchen, spacious terrace, and design
+                        focused on light and comfort.
+                    </p>
+                    <a href="modern.html" class="apt-link" data-i18n="btn-more">Zobacz Więcej &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Retro Card -->
+            <article class="apartment-card" id="retro">
+                <div class="apt-image"
+                    style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-16 at 07.47.57 (2).jpeg');">
+                    <span class="apt-tag" data-i18n="tag-retro">Parter</span>
+                </div>
+                <div class="apt-details">
+                    <h3 class="apt-title" data-i18n="apt-retro-title">Retro – PRL Style</h3>
+                    <p class="apt-desc" data-i18n="apt-retro-desc">
+                        A unique "Old School" experience with restored tiled stoves, traditional porch, and authentic
+                        details. Perfect for families.
+                    </p>
+                    <a href="retro.html" class="apt-link" data-i18n="btn-more">Zobacz Więcej &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Relax Card -->
+            <article class="apartment-card" id="relax">
+                <div class="apt-image"
+                    style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.30.jpeg');">
+                    <span class="apt-tag" data-i18n="tag-relax">Spa & Garden</span>
+                </div>
+                <div class="apt-details">
+                    <h3 class="apt-title" data-i18n="apt-relax-title">Relax – Spa Experience</h3>
+                    <p class="apt-desc" data-i18n="apt-relax-desc">
+                        Finnish sauna, salt cave, and wood-fired hot tub. A comprehensive wellness center designed for
+                        year-round recovery.
+                    </p>
+                    <a href="relax.html" class="apt-link" data-i18n="btn-more">Zobacz Więcej &rarr;</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" style="padding: 4rem 0; text-align: center;">
+        <h2 class="section-title" data-i18n="contact-title">Kontakt</h2>
+        <div style="font-size: 1.2rem; line-height: 2;">
+            <p><strong>Kierunek Wschód</strong></p>
+            <p data-i18n="contact-email">Email: kontakt@kierunekwschod.pl</p>
+            <p data-i18n="contact-phone">Telefon: +48 123 456 789</p>
+            <p data-i18n="contact-address">Adres: Przykładowa Ulica 10, Bieszczady</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <a href="attractions.html" class="footer-highlight-link" data-i18n="nav-attractions">Atrakcje na
+                Podlasiu</a>
+
+            <div class="footer-bottom-links">
+                <a href="about.html" data-i18n="nav-about">O nas</a>
+                <a href="index.html#contact" data-i18n="nav-contact">Kontakt</a>
+            </div>
+
+            <p data-i18n="footer-rights" style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Kierunek
+                Wschód. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Slideshow Logic for app.html (Kept inline as it is logic, not text)
+        const slideContainer = document.querySelector('.hero-bg-slideshow');
+        if (slideContainer) {
+            // 1. Convert NodeList to Array and Shuffle
+            const slides = Array.from(slideContainer.querySelectorAll('.hero-bg'));
+
+            // Fisher-Yates Shuffle
+            for (let i = slides.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [slides[i], slides[j]] = [slides[j], slides[i]];
+            }
+
+            // 2. Re-append in new order and reset state
+            // 2. Re-append in new order and reset state
+            slides.forEach((slide, index) => {
+                slideContainer.appendChild(slide); // Moves it to end (re-ordering)
+                slide.classList.remove('active'); // Ensure all are hidden initially (Black start)
+            });
+
+            // 3. Start Rotation after delay
+            const heroSlides = document.querySelectorAll('.hero-bg'); // Re-select to be safe
+            let currentHeroSlide = 0;
+
+            // Wait 2 seconds before fading in the first image
+            setTimeout(() => {
+                if (heroSlides[0]) heroSlides[0].classList.add('active'); // First fade in
+
+                // Start rotation loop
+                setInterval(() => {
+                    heroSlides[currentHeroSlide].classList.remove('active');
+                    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                    if (heroSlides[currentHeroSlide]) heroSlides[currentHeroSlide].classList.add('active');
+                }, 6000); // Change every 6 seconds
+            }, 1000); // 1 second initial black delay
+        }
+    </script>
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/audio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Apartment - Kierunek Wschód 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="app.html" class="logo">
+                <img src="assets/logo.png" alt="Kierunek Wschód" style="height: 50px; vertical-align: middle;">
+            </a>
+            <a href="#book" class="btn-cta" data-i18n="nav-book">Rezerwuj</a>
+            <nav class="nav-links">
+                <a href="app.html" class="nav-link" data-i18n="nav-home">Home</a>
+                <a href="retro-gallery.html" class="nav-link" data-i18n="nav-gallery">Galeria</a>
+                <a href="prices.html" class="nav-link" data-i18n="nav-prices">Cennik</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Video/Image -->
+    <section class="page-hero">
+        <div class="hero-bg-slideshow" id="hero-slideshow">
+            <!-- Slides injected by JS -->
+        </div>
+        <div class="overlay"></div>
+        <div class="container page-hero-content">
+            <div class="hero-subtitle" data-i18n="retro-hero-sub">Old School Vibe</div>
+            <h1 data-i18n="retro-hero-title">Retro – PRL Style</h1>
+        </div>
+        <!-- Scroll Hint -->
+        <div class="scroll-hint"
+            onclick="document.querySelector('.detail-layout').scrollIntoView({behavior: 'smooth'})">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div>
+                <span class="scroll-arrow"></span>
+                <span class="scroll-arrow"></span>
+                <span class="scroll-arrow"></span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container detail-layout">
+
+        <!-- Left Content -->
+        <article class="detail-content">
+            <h2 data-i18n="retro-over-title">Overview</h2>
+            <p data-i18n="retro-over-text">
+                Step back in time...
+            </p>
+
+            <h2 data-i18n="retro-features-title">Interior Features</h2>
+            <ul data-i18n="retro-features-list">
+                <!-- Filled by JS -->
+            </ul>
+
+            <h2 data-i18n="retro-bed-title">Room Layout</h2>
+            <ul data-i18n="retro-bed-list">
+                <!-- Filled by JS -->
+            </ul>
+        </article>
+
+        <!-- Right Sidebar -->
+        <aside class="detail-sidebar">
+            <div class="amenities-box">
+                <h3>Udogodnienia</h3>
+                <ul class="amenities-list">
+                    <li>✓ Historical Design</li>
+                    <li>✓ 2 Private Bedrooms</li>
+                    <li>✓ Family Room (Bunk Beds)</li>
+                    <li>✓ Restored Tiled Stoves</li>
+                    <li>✓ Private Terrace</li>
+                    <li>✓ Wi-Fi</li>
+                    <li>✓ Sleeps up to 8</li>
+                </ul>
+                <a href="#book" class="btn-book-sidebar">Sprawdź Termin</a>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Cross-sell removed per user request -->
+    <footer class="site-footer">
+        <div class="container">
+            <a href="attractions.html" class="footer-highlight-link" data-i18n="nav-attractions">Atrakcje na
+                Podlasiu</a>
+            <div class="footer-bottom-links">
+                <a href="about.html" data-i18n="nav-about">O nas</a>
+                <a href="index.html#contact" data-i18n="nav-contact">Kontakt</a>
+            </div>
+            <p data-i18n="footer-rights" style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Kierunek
+                Wschód. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/audio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax Spa - Kierunek Wschód 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="app.html" class="logo">
+                <img src="assets/logo.png" alt="Kierunek Wschód" style="height: 50px; vertical-align: middle;">
+            </a>
+            <a href="#book" class="btn-cta" data-i18n="nav-book">Rezerwuj</a>
+            <nav class="nav-links">
+                <a href="app.html" class="nav-link" data-i18n="nav-home">Home</a>
+                <a href="relax-gallery.html" class="nav-link" data-i18n="nav-gallery">Galeria</a>
+                <a href="prices.html" class="nav-link" data-i18n="nav-prices">Cennik</a>
+            </nav>
+        </div>
+    </header>
+
+    <!--    <!-- Hero Video/Image -->
+    <div class="page-hero">
+        <div class="hero-bg-slideshow" id="hero-slideshow">
+            <!-- Slides injected by JS -->
+        </div>
+        <div class="overlay"></div>
+        <div class="container page-hero-content">
+            <div class="hero-subtitle" data-i18n="relax-hero-sub">Wellness & Nature</div>
+            <h1 data-i18n="relax-hero-title">Relax – Spa & Garden</h1>
+        </div>
+        <!-- Scroll Hint -->
+        <div class="scroll-hint"
+            onclick="document.querySelector('.detail-layout').scrollIntoView({behavior: 'smooth'})">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div>
+                <span class="scroll-arrow"></span>
+                <span class="scroll-arrow"></span>
+                <span class="scroll-arrow"></span>
+            </div>
+        </div>
+    </div>
+
+    <main class="container detail-layout">
+
+        <!-- Left Content -->
+        <article class="detail-content">
+            <h2>The Sauna and Salt Cave Building</h2>
+            <p>
+                A repurposed outbuilding houses a comprehensive wellness center designed for year-round recovery.
+                Immerse yourself in tranquility.
+            </p>
+            <p><strong>Sauna:</strong> A Finnish-style sauna accommodating up to 8 persons, including a dedicated
+                interior chill-out area.</p>
+
+            <h3>Salt Cave (Basement)</h3>
+            <ul>
+                <li><strong>Zone 1:</strong> Equipped with a salt graduation tower (tężnia solna) for respiratory
+                    health.</li>
+                <li><strong>Zone 2:</strong> A relaxation room featuring a professional massage chair and specialized
+                    lighting for reading and deep relaxation.</li>
+            </ul>
+
+            <h2>Outdoor Wellness</h2>
+            <p><strong>Wood-Fired Hot Tub:</strong> A traditional "Ruska balia" for up to 7 persons. Wood-heated for use
+                in all seasons, including winter under the stars.</p>
+            <p><strong>Firepit Area:</strong> A large, circular social area integrated with a garden swing and a
+                designated spot for bonfires.</p>
+
+            <h2>Culinary Hub</h2>
+            <p>
+                A restored former coal storage building converted into a culinary masterpiece.
+                Includes a <strong>Brick Smokehouse</strong> for curing meats and a <strong>Pizza/Bread Oven</strong>
+                for traditional baking.
+            </p>
+        </article>
+
+        <!-- Right Sidebar -->
+        <aside class="detail-sidebar">
+            <div class="amenities-box">
+                <h3>Udogodnienia</h3>
+                <ul class="amenities-list">
+                    <li>✓ Finnish Sauna (8 pax)</li>
+                    <li>✓ Salt Cave & Tower</li>
+                    <li>✓ Massage Chair</li>
+                    <li>✓ Wood-Fired Hot Tub</li>
+                    <li>✓ Pizza Oven</li>
+                    <li>✓ Smokehouse</li>
+                    <li>✓ Firepit Area</li>
+                </ul>
+                <a href="#book" class="btn-book-sidebar">Sprawdź Termin</a>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Cross-sell removed per user request -->
+    <footer class="site-footer">
+        <div class="container">
+            <a href="attractions.html" class="footer-highlight-link" data-i18n="nav-attractions">Atrakcje na
+                Podlasiu</a>
+            <div class="footer-bottom-links">
+                <a href="about.html" data-i18n="nav-about">O nas</a>
+                <a href="index.html#contact" data-i18n="nav-contact">Kontakt</a>
+            </div>
+            <p data-i18n="footer-rights" style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Kierunek
+                Wschód. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/audio.js"></script>
+</body>
+
+</html>

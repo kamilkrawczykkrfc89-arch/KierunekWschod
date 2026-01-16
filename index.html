@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kierunek Wschód - Welcome</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --text-light: #F5F5F5;
+            --overlay-dark: rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111;
+        }
+
+        body {
+            opacity: 0;
+            /* Star invisible */
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease-out;
+            pointer-events: none;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+        }
+
+        /* Slideshow */
+        .slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+            animation: kenBurns 20s infinite alternate ease-in-out;
+        }
+
+        /* Keep animation running while fading out */
+        .slide.previous {
+            opacity: 0;
+            z-index: 1;
+            animation: kenBurns 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1.1) translate(0, 0);
+            }
+
+            50% {
+                transform: scale(1.15) translate(-1%, -1%);
+            }
+
+            100% {
+                transform: scale(1.2) translate(1%, 1%);
+            }
+        }
+
+
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 2;
+        }
+
+        /* Language Selector */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Align to top to be closer to Header Logo */
+            padding-top: 180px;
+            /* Space for Header + Gap */
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s 0.5s forwards ease-out;
+        }
+
+        .brand-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s 0.8s forwards ease-out;
+        }
+
+        .lang-selector {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 3rem;
+            /* Row gap 2rem, Col gap 3rem */
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1s 1.5s forwards;
+        }
+
+        .lang-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.27);
+        }
+
+        .lang-option:hover {
+            transform: scale(1.15);
+        }
+
+        .flag-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lang-option:hover .flag-icon {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .lang-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .lang-option:hover .lang-label {
+            opacity: 1;
+            color: var(--primary-gold);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* SVG Flags */
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .lang-selector {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem 1rem;
+                width: 100%;
+                padding: 0 1rem;
+                justify-items: center;
+            }
+
+            .flag-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.5rem;
+            }
+
+            .lang-label {
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+
+            .brand-logo {
+                max-width: 200px !important;
+            }
+
+            .brand-subtitle {
+                margin-bottom: 2rem;
+                margin-bottom: 2rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Splash Page Specific Overrides */
+        .splash-header .nav-links,
+        .splash-header .btn-cta {
+            display: none !important;
+        }
+
+        /* Ensure Logo alignment matches */
+        .splash-header .nav-container {
+            justify-content: center;
+            /* Centered on PC and Mobile */
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Splash Optimization */
+
+            /* Center the header logo explicitly */
+            .splash-header .nav-container {
+                justify-content: center !important;
+                padding-bottom: 0;
+            }
+
+            /* Make Logo Bigger on Mobile Splash (but smaller than 140px) */
+            .splash-header .logo img {
+                height: 125px !important;
+            }
+
+            /* Bring Content Closer */
+            .content-wrapper {
+                padding-top: 130px !important;
+                /* Reduced from 155px to pull text up */
+            }
+
+            .brand-subtitle {
+                margin-bottom: 1rem;
+                /* Even tighter gap to flags */
+                margin-top: 2rem !important;
+                /* Add some space if needed, or keep 0? User said "closer". Keeping 0 from inline style, or small gap. */
+                /* Actually inline style says margin-top: 0 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Standard Header added for consistency -->
+    <!-- Standard Header Visible (Nav/CTA hidden via CSS below) -->
+    <!-- Standard Header Visible: Logo matches other pages, Animates in. Nav/CTA hidden. -->
+    <header class="site-header splash-header">
+        <div class="container nav-container">
+            <a href="app.html" class="logo">
+                <img src="assets/logo.png" alt="Kierunek Wschód"
+                    style="opacity: 0; animation: fadeUp 1s 0.5s forwards ease-out;">
+            </a>
+            <nav class="nav-links">
+                <a href="app.html" class="nav-link" data-i18n="nav-home">Home</a>
+                <a href="modern.html" class="nav-link" data-i18n="nav-modern">Modern</a>
+                <a href="retro.html" class="nav-link" data-i18n="nav-retro">Retro</a>
+                <a href="relax.html" class="nav-link" data-i18n="nav-relax">Relax</a>
+                <a href="attractions.html" class="nav-link" data-i18n="nav-attractions">Atrakcje</a>
+                <a href="app.html#contact" class="nav-link" data-i18n="nav-contact">Kontakt</a>
+            </nav>
+            <a href="app.html#book" class="btn-cta" data-i18n="nav-book">Rezerwuj</a>
+        </div>
+    </header>
+
+    <div class="loader" id="loader"></div>
+
+    <div class="slideshow" id="slideshow-container">
+
+        <!-- ==================== MODERN ==================== -->
+        <div class="slide active"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35 (1).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35 (2).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35 (3).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35 (4).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35 (5).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.35.jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.36 (1).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.36 (2).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.36 (3).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.36 (4).jpeg')">
+        </div>
+        <div class="slide"
+            style="background-image: url('assets/modern-boutique/WhatsApp Image 2026-01-16 at 07.48.36 (5).jpeg')">
+        </div>
+
+        <!-- ==================== RETRO ==================== -->
+        <div class="slide"
+            style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-15 at 20.36.09 (1).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-15 at 20.36.09 (2).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-15 at 20.36.09 (3).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-15 at 20.36.09 (4).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/retro-boutique/WhatsApp Image 2026-01-15 at 20.36.09.jpeg')"></div>
+
+        <!-- ==================== RELAX ==================== -->
+        <div class="slide"
+            style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.30.jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.33 (1).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.33 (2).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.33 (3).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.33 (4).jpeg')"></div>
+        <div class="slide"
+            style="background-image: url('assets/relax-boutique/WhatsApp Image 2026-01-16 at 08.05.33 (5).jpeg')"></div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="content-wrapper">
+        <!-- Logo is in Header -->
+        <!-- <h1 class="brand-title">KIERUNEK WSCHÓD</h1> -->
+        <p class="brand-subtitle" style="margin-top: 0;">Choose Your Language</p>
+
+        <div class="lang-selector">
+            <!-- English -->
+            <div class="lang-option" onclick="selectLanguage('en')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#012169" d="M0 0h640v480H0z" />
+                        <path fill="#FFF"
+                            d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z" />
+                        <path fill="#C8102E"
+                            d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z" />
+                        <path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z" />
+                        <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z" />
+                    </svg>
+                </div>
+                <span class="lang-label">English</span>
+            </div>
+
+            <!-- Polish -->
+            <div class="lang-option" onclick="selectLanguage('pl')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#fff" d="M0 0h640v480H0z" />
+                        <path fill="#dc143c" d="M0 240h640v240H0z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Polski</span>
+            </div>
+
+            <!-- German -->
+            <div class="lang-option" onclick="selectLanguage('de')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#ffce00" d="M0 320h640v160H0z" />
+                        <path fill="#000" d="M0 0h640v160H0z" />
+                        <path fill="#d00" d="M0 160h640v160H0z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Deutsch</span>
+            </div>
+
+            <!-- Czech -->
+            <div class="lang-option" onclick="selectLanguage('cs')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#fff" d="M0 0h640v240H0z" />
+                        <path fill="#d7141a" d="M0 240h640v240H0z" />
+                        <path fill="#11457e" d="M0 0l300 240L0 480z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Čeština</span>
+            </div>
+
+            <!-- Slovak -->
+            <div class="lang-option" onclick="selectLanguage('sk')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#fff" d="M0 0h640v160H0z" />
+                        <path fill="#0b4ea2" d="M0 160h640v160H0z" />
+                        <path fill="#ee1c25" d="M0 320h640v160H0z" />
+                        <path fill="#fff" d="M175 220h10v60h-10zM160 240h40v10h-40z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Slovenčina</span>
+            </div>
+
+            <!-- Belarusian -->
+            <div class="lang-option" onclick="selectLanguage('be')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#d62a1a" d="M0 0h640v320H0z" />
+                        <path fill="#048037" d="M0 320h640v160H0z" />
+                        <path fill="#fff" d="M0 0h100v480H0z" /> <!-- Vertical stripe -->
+                        <path fill="#d62a1a"
+                            d="M20 0l40 40-40 40L60 120 20 160l40 40-40 40 40 40-40 40 40 40-40 40 40 40z" />
+                        <!-- Pattern hint -->
+                    </svg>
+                </div>
+                <span class="lang-label">Беarуская</span>
+            </div>
+
+            <!-- Italian -->
+            <div class="lang-option" onclick="selectLanguage('it')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#009246" d="M0 0h213.3v480H0z" />
+                        <path fill="#fff" d="M213.3 0h213.3v480H213.3z" />
+                        <path fill="#ce2b37" d="M426.6 0h213.3v480H426.6z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Italiano</span>
+            </div>
+
+            <!-- Spanish -->
+            <div class="lang-option" onclick="selectLanguage('es')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#aa151b" d="M0 0h640v120H0z" />
+                        <path fill="#f1bf00" d="M0 120h640v240H0z" />
+                        <path fill="#aa151b" d="M0 360h640v120H0z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Español</span>
+            </div>
+
+            <!-- French -->
+            <div class="lang-option" onclick="selectLanguage('fr')">
+                <div class="flag-icon">
+                    <svg viewBox="0 0 640 480">
+                        <path fill="#0055a4" d="M0 0h213.3v480H0z" />
+                        <path fill="#fff" d="M213.3 0h213.3v480H213.3z" />
+                        <path fill="#ef4135" d="M426.6 0h213.3v480H426.6z" />
+                    </svg>
+                </div>
+                <span class="lang-label">Français</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Loader
+        // Loader & Fade In (More robust trigger)
+        function initPage() {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }
+
+        // Trigger as soon as DOM is ready, don't wait for images
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(initPage, 100); // Small buffer
+        });
+
+        // Fallback in case DOMContentLoaded already fired
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            initPage();
+        }
+
+        // Slideshow Logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        setInterval(() => {
+            // Mark current as previous to fade it out smoothly while keeping animation
+            const prevSlide = slides[currentSlide];
+            prevSlide.classList.remove('active');
+            prevSlide.classList.add('previous');
+
+            // Clean up 'previous' class after transition is done (1.5s)
+            setTimeout(() => {
+                prevSlide.classList.remove('previous');
+            }, 1500);
+
+            // Activate next
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+        // Language Selection
+        function selectLanguage(lang) {
+            // Fade out effect
+            document.body.classList.remove('loaded');
+
+            setTimeout(() => {
+                window.location.href = `app.html?lang=${lang}`;
+            }, 800);
+        }
+    </script>
+    <script src="js/audio.js"></script>
+</body>
+
+</html>
